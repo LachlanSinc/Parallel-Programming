@@ -1,0 +1,26 @@
+#!/bin/bash
+
+g++ -DNUMT=1 -o proj1 Project\ 0.cpp -lm -fopenmp -O1
+
+if [ $? -ne 0 ];
+then
+	echo "compiling failed!"
+fi
+
+g++ -DNUMT=4 -o proj4 Project\ 0.cpp -lm -fopenmp -O1
+
+if [ $? -ne 0 ];
+then
+	echo "compiling failed!"
+fi
+
+for i in {1..100}
+do
+	./proj1
+	./proj4
+	echo
+done
+
+
+
+
